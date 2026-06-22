@@ -92,19 +92,13 @@ export default function SettingsPage() {
         <p className="page-subtitle">Gerencie as preferências e integrações do sistema</p>
       </div>
 
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-        {tabs.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === tab.id ? 'bg-gold text-black' : 'bg-white/[0.03] text-text-secondary hover:bg-white/[0.06]'}`}
-          >
-            <tab.icon size={16} /> {tab.label}
-          </button>
-        ))}
-      </div>
-
       <div className="space-y-6">
+        {/* Sessão SMTP */}
+        <section className="card overflow-hidden border border-white/[0.06]">
+          <div className="bg-white/[0.02] p-4 border-b border-white/[0.06] flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-info/10 flex items-center justify-center text-info">
+              <Mail size={20} />
+            </div>
             <div>
               <h2 className="font-semibold text-text-primary">Servidor de E-mail (SMTP)</h2>
               <p className="text-xs text-text-muted">Configure o remetente para a Central de NF</p>

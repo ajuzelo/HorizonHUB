@@ -25,7 +25,7 @@ function OverviewTab({ accounts, wallets, cards }: { accounts: PersonalAccount[]
   const totalFaturas = cards.reduce((acc, c) => acc + (c.fatura_atual || 0), 0);
   
   const receitasMes = accounts.filter(a => a.tipo === 'receita' && a.status === 'recebido').reduce((acc, a) => acc + a.valor, 0);
-  const despesasMes = accounts.filter(a => a.tipo === 'despesa' && a.status === 'pago').range ? 0 : accounts.filter(a => a.tipo === 'despesa' && a.status === 'pago').reduce((acc, a) => acc + a.valor, 0); // Simplified
+  const despesasMes = accounts.filter(a => a.tipo === 'despesa' && a.status === 'pago').reduce((acc, a) => acc + a.valor, 0);
 
   return (
     <div className="space-y-6 animate-fade-in">
