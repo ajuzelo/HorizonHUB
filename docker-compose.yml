@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: horizonhub_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-horizonhub}
+      POSTGRES_USER: ${DB_USER:-horizonhub}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-horizonhub_secret}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/seeds/init.sql:/docker-entrypoint-initdb.d/00_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-horizonhub} -d ${DB_NAME:-horizonhub}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Descomente para usar pgAdmin (interface visual para o banco)
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: horizonhub_pgadmin
+  #   restart: unless-stopped
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@horizonhub.local
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   ports:
+  #     - "5050:80"
+  #   depends_on:
+  #     - postgres
+
+volumes:
+  postgres_data:
+    name: horizonhub_postgres_data
