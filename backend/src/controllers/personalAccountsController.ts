@@ -32,8 +32,8 @@ export class PersonalAccountsController {
         .orderBy('id', 'desc');
 
       if (mes && ano) {
-        query = query.whereRaw('EXTRACT(MONTH FROM data_movimento) = ?', [mes])
-                     .whereRaw('EXTRACT(YEAR FROM data_movimento) = ?', [ano]);
+        query = query.whereRaw('EXTRACT(MONTH FROM data_movimento) = ?', [Number(mes)])
+                     .whereRaw('EXTRACT(YEAR FROM data_movimento) = ?', [Number(ano)]);
       }
 
       if (tipo) {
