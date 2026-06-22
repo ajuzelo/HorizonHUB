@@ -4,7 +4,7 @@
   "description": "Horizon HUB — Backend API",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "node_modules\\.bin\\tsx.cmd watch src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "migrate": "node -r tsx/cjs ./node_modules/knex/bin/cli.js --knexfile knexfile.cjs migrate:latest",
