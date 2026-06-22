@@ -68,7 +68,17 @@ export class SetupController {
         const uid = user.id;
 
         // 2. Assign both profiles to user
-        const profiles = await trx('profiles').select('id');
+        let profiles = await trx('profiles').select('id');
+
+        // Fallback: if seeds were skipped, create default profiles
+        if (profiles.length === 0) {
+          await trx('profiles').insert([
+            { nome: 'Profissional', descricao: 'Módulos para gestão das empresas', ordem: 1 },
+            { nome: 'Pessoal', descricao: 'Módulos para organização pessoal e financeira', ordem: 2 },
+          ]);
+          profiles = await trx('profiles').select('id');
+        }
+
         await trx('user_profiles').insert(
           profiles.map((p: { id: number }) => ({
             user_id: uid,
