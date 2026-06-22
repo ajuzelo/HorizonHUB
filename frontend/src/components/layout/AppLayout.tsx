@@ -18,14 +18,14 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
+  { icon: Wallet, label: 'Financeiro', path: '/personal-finance', profiles: ['Pessoal'] },
   { icon: CreditCard, label: 'Contas a Pagar', path: '/accounts-payable', profiles: ['Profissional'] },
   { icon: FileCode2, label: 'Importador XML', path: '/xml-importer', profiles: ['Profissional'] },
   { icon: CheckSquare, label: 'Tarefas', path: '/tasks' },
   { icon: FileText, label: 'Central de NF', path: '/nf-central', profiles: ['Profissional'] },
-  { icon: MessageCircle, label: 'WhatsApp', path: '/whatsapp' },
+  { icon: MessageCircle, label: 'WhatsApp', path: '/whatsapp', profiles: ['Profissional'] },
   { icon: Calculator, label: 'Calculadora', path: '/calculator' },
   { icon: StickyNote, label: 'Notas Rápidas', path: '/notes' },
-  { icon: Wallet, label: 'Financeiro Pessoal', path: '/personal-finance', profiles: ['Pessoal'] },
 ];
 
 export default function AppLayout() {

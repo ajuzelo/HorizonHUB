@@ -11,40 +11,40 @@ export default {
         // === Horizon HUB Design Tokens ===
         // Background layers
         bg: {
-          base: '#0F1117',       // primary background
-          surface: '#161B27',    // cards, panels
-          elevated: '#1C2333',   // elevated elements
-          overlay: '#232B3E',    // tooltips, popovers
-          muted: '#2A3347',      // muted elements
+          base: '#000000',       // primary background
+          surface: '#0a0a0a',    // cards, panels
+          elevated: '#111111',   // elevated elements
+          overlay: '#171717',    // tooltips, popovers
+          muted: '#262626',      // muted elements
         },
-        // Gold accent system
+        // Gold accent system (repurposed to white/gray for minimalism)
         gold: {
-          DEFAULT: '#FFD700',
-          50:  '#FFFDE7',
-          100: '#FFF9C4',
-          200: '#FFF176',
-          300: '#FFEE58',
-          400: '#FFCA28',
-          500: '#FFD700',
-          600: '#F5C200',
-          700: '#E5A900',
-          800: '#CC8800',
-          900: '#A36400',
-          foreground: '#0F1117',
+          DEFAULT: '#ffffff',
+          50:  '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+          foreground: '#000000',
         },
         // Border system
         border: {
-          DEFAULT: 'rgba(255,255,255,0.06)',
+          DEFAULT: 'rgba(255,255,255,0.08)',
           subtle: 'rgba(255,255,255,0.04)',
-          strong: 'rgba(255,255,255,0.12)',
-          gold: 'rgba(255,215,0,0.2)',
+          strong: 'rgba(255,255,255,0.15)',
+          gold: 'rgba(255,255,255,0.2)',
         },
         // Text system
         text: {
-          primary: '#F1F3F7',
-          secondary: '#8B9AB0',
-          muted: '#4E5E74',
-          accent: '#FFD700',
+          primary: '#FAFAFA',
+          secondary: '#A1A1AA',
+          muted: '#52525B',
+          accent: '#ffffff',
         },
         // Status colors
         success: { DEFAULT: '#22C55E', light: 'rgba(34,197,94,0.12)' },
@@ -66,12 +66,12 @@ export default {
         '3xl': '24px',
       },
       boxShadow: {
-        'card': '0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)',
-        'card-hover': '0 4px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,215,0,0.15)',
-        'gold': '0 0 20px rgba(255,215,0,0.15)',
-        'gold-sm': '0 0 8px rgba(255,215,0,0.1)',
-        'panel': '0 8px 32px rgba(0,0,0,0.5)',
-        'input-focus': '0 0 0 2px rgba(255,215,0,0.25)',
+        'card': '0 1px 3px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05)',
+        'card-hover': '0 4px 16px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.15)',
+        'gold': '0 0 20px rgba(255,255,255,0.15)',
+        'gold-sm': '0 0 8px rgba(255,255,255,0.1)',
+        'panel': '0 8px 32px rgba(0,0,0,0.8)',
+        'input-focus': '0 0 0 2px rgba(255,255,255,0.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.2s ease-out',
@@ -108,10 +108,10 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-gold': 'linear-gradient(135deg, #FFD700 0%, #F5C200 50%, #E5A900 100%)',
-        'gradient-gold-subtle': 'linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.05) 100%)',
-        'gradient-surface': 'linear-gradient(180deg, #161B27 0%, #1C2333 100%)',
-        'gradient-dark': 'linear-gradient(180deg, #0F1117 0%, #0A0D14 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #ffffff 0%, #e5e5e5 50%, #d4d4d4 100%)',
+        'gradient-gold-subtle': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+        'gradient-surface': 'linear-gradient(180deg, #0a0a0a 0%, #111111 100%)',
+        'gradient-dark': 'linear-gradient(180deg, #000000 0%, #0a0a0a 100%)',
         'shimmer-gradient': 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%)',
       },
     },
