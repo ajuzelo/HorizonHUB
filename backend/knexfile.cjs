@@ -23,26 +23,30 @@ const base = {
 module.exports = {
   development: {
     ...base,
-    connection: {
-      host: process.env.DB_HOST || 'localhost',
-      port: Number(process.env.DB_PORT) || 5432,
-      database: process.env.DB_NAME || 'horizonhub',
-      user: process.env.DB_USER || 'horizonhub',
-      password: process.env.DB_PASSWORD || 'horizonhub_secret',
-    },
+    connection: process.env.DATABASE_URL 
+      ? { connectionString: process.env.DATABASE_URL, ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false }
+      : {
+          host: process.env.DB_HOST || 'localhost',
+          port: Number(process.env.DB_PORT) || 5432,
+          database: process.env.DB_NAME || 'horizonhub',
+          user: process.env.DB_USER || 'horizonhub',
+          password: process.env.DB_PASSWORD || 'horizonhub_secret',
+        },
     pool: { min: 2, max: 10 },
   },
 
   production: {
     ...base,
-    connection: {
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT) || 5432,
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
-    },
+    connection: process.env.DATABASE_URL 
+      ? { connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } }
+      : {
+          host: process.env.DB_HOST,
+          port: Number(process.env.DB_PORT) || 5432,
+          database: process.env.DB_NAME,
+          user: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          ssl: process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false },
+        },
     pool: { min: 2, max: 20 },
   },
 };
