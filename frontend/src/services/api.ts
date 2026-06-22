@@ -2,7 +2,9 @@ import axios from 'axios';
 import { useAuthStore } from '@/store/authStore';
 
 const api = axios.create({
-  baseURL: '/api',
+  // Em desenvolvimento (npm run dev) usa o proxy do Vite (/api -> localhost:3001)
+  // Em produção (Netlify) usa a URL pública do Render
+  baseURL: import.meta.env.DEV ? '/api' : 'https://horizonhub-81rr.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
